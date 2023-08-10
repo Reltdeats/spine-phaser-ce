@@ -1,0 +1,78 @@
+{
+  "extends": "eslint-config-airbnb-base",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false
+  },
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "Phaser": true,
+    "phasersito": true,
+    "Phasersito": true
+  },
+  "rules": {
+    "comma-dangle": [
+      2,
+      "never"
+    ],
+    "prefer-destructuring": [
+      "error",
+      {
+        "object": true,
+        "array": false
+      }
+    ],
+    "no-void": 0,
+    "arrow-parens": 0,
+    "no-plusplus": 0,
+    "newline-per-chained-call": 0,
+    "no-mixed-operators": 0,
+    "import/newline-after-import": 0,
+    "import/no-webpack-loader-syntax": 0,
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/prefer-default-export": 0,
+    "no-extra-boolean-cast": 0,
+    "space-before-function-paren": 0,
+    "no-return-await": 0,
+    "no-undef-init": 0,
+    "linebreak-style": 0,
+    "dot-location": 0,
+    "no-await-in-loop": 0,
+    "no-restricted-syntax": 0,
+    "no-multi-assign": 0,
+    "no-bitwise": 0,
+    "no-tabs": 0,
+    "operator-assignment": 0,
+    "prefer-spread": 0,
+    "class-methods-use-this": 0,
+    "global-require": 0,
+    "indent": "off",
+    "import/no-named-as-default": 0,
+    "no-console": [
+      2,
+      {
+        "allow": [
+          "debug",
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "no-param-reassign": 0,
+    "no-underscore-dangle": [
+      0
+    ],
+    "max-len": 0,
+    "object-curly-newline": [
+      "error",
+      {
+        "multiline": true,
+        "consistent": true,
+        "minProperties": 7
+      }
+    ]
+  }
+}

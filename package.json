@@ -1,0 +1,49 @@
+{
+  "name": "@reltdeats/spine-phaser-ce",
+  "version": "0.8.0",
+  "description": "Spine runtimes plugin for Phaser CE.",
+  "main": "./src/spinePlugin.js",
+  "files": [
+    "src/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "webpack --env build=development",
+    "pro": "webpack --env build=production",
+    "analyze_dev": "webpack --env build=development analyze=true",
+    "analyze_pro": "webpack --env build=production analyze=true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reltdeats/spine-phaser-ce.git"
+  },
+  "keywords": [
+    "HTML5",
+    "WebGL",
+    "canvas",
+    "gamedev",
+    "animations",
+    "2d",
+    "spine",
+    "game-dev",
+    "runtimes",
+    "skeletal",
+    "phaser",
+    "phaser-ce"
+  ],
+  "author": "Ruben García Vilà",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Reltdeats/spine-phaser-ce/issues"
+  },
+  "homepage": "https://github.com/Reltdeats/spine-phaser-ce#readme",
+  "dependencies": {
+    "@esotericsoftware/spine-core": "^4.2.18",
+    "@esotericsoftware/spine-webgl": "^4.2.18",
+    "@esotericsoftware/spine-canvas": "^4.2.18"
+  },
+  "peerDependencies": {
+    "phaser-ce": "^2.20.0"
+  }
+}
