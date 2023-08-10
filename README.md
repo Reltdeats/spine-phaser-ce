@@ -1,6 +1,12 @@
 # spine-phaser-ce
 Spine runtimes plugin for Phaser CE.
 
+## Features
+
+- Full support of the last Spine version (4.x.x).
+- Support for Canvas and WebGL.
+- Support for Canvas mesh.
+
 ## Requisites
 
 - Phaser CE 2.20.0 or newer (not tested with older versions).
@@ -76,9 +82,14 @@ Example:
 ```javascript
 this.star.animationState.setAnimation(0, 'Idle', true);
 
-this.game.time.events.loop(8000, async () => {
+this.game.time.events.loop(8000, () => {
     this.star.animationState.setAnimation(0, 'In', false);
     this.star.animationState.addAnimation(0, 'Idle', false);
     this.star.animationState.addAnimation(0, 'Out', false);
 });
 ```
+
+## Maintenance
+I use this plugin in my daily work, so expect some improvements and inclusion of Phaser features over time.
+
+Feel free to report any bugs the usual way in the github [issues page](https://github.com/Reltdeats/spine-phaser-ce/issues).
