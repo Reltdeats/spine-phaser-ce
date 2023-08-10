@@ -64,7 +64,7 @@ export default class SpinePlugin extends Phaser.Plugin {
   }
 
   _addSpineLoader() {
-    Phaser.Loader.prototype.spineTs = function spineTs(key, spineFiles, overwrite) {
+    Phaser.Loader.prototype.spine = function spine(key, spineFiles, overwrite) {
       this.text(`${key}-text`, spineFiles.atlas, overwrite);
 
       if (spineFiles.json) this.json(`${key}-json`, spineFiles.json);
@@ -86,7 +86,7 @@ export default class SpinePlugin extends Phaser.Plugin {
 
   _addSpineFactory() {
     const self = this;
-    Phaser.GameObjectFactory.prototype.spineTs = function spineTs(x, y, key, group, premultipliedAlpha) {
+    Phaser.GameObjectFactory.prototype.spine = function spine(x, y, key, group, premultipliedAlpha) {
       if (premultipliedAlpha === void 0) { premultipliedAlpha = false; }
       if (group === undefined) {
         group = this.world;
@@ -96,7 +96,7 @@ export default class SpinePlugin extends Phaser.Plugin {
       return group.add(spineObject);
     };
 
-    Phaser.GameObjectCreator.prototype.spineTs = function spineTs(x, y, key, premultipliedAlpha) {
+    Phaser.GameObjectCreator.prototype.spine = function spine(x, y, key, premultipliedAlpha) {
       if (premultipliedAlpha === void 0) { premultipliedAlpha = false; }
       const spineObject = new SpineGameObject(this.game, self, x, y, key, premultipliedAlpha);
       self.spineList.push(spineObject);
