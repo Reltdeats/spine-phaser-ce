@@ -87,7 +87,7 @@ export default class SpineGameObject extends SpineBaseGameObject {
   /* Rebuilds to replace current spine */
   replaceSpine(key) {
     this.key = key;
-    this.__setSpine();
+    this._setSpine();
   }
 
   preUpdate() {
