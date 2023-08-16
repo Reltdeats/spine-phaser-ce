@@ -53,7 +53,7 @@ const spineStar = {
 }
    
 // Load the spine with your game loader
-this.game.load.spine('spineStar', spineDino);
+this.game.load.spine('spineStar', spineStar);
 ```
 4. Add the spine to the game:
 
@@ -87,6 +87,27 @@ this.game.time.events.loop(8000, () => {
     this.star.animationState.addAnimation(0, 'Idle', false);
     this.star.animationState.addAnimation(0, 'Out', false);
 });
+```
+
+## Debug
+Debug is still in progress and shows little to no information. WIP.
+
+To enable debug, just set the `debug` property of the spine to `true`.
+
+```javascript
+this.star = this.game.add.spine(200, 300, 'spineStar', group, false);
+this.star.debug = true;
+```
+
+## Canvas mesh
+To enable canvas mesh, set the `enableCanvasMesh` property of the spine to `true`.
+
+Be aware, that canvas mesh is a hack to render each triangle of the mesh separately.
+This can cause some aliasing (cause the triangles are not attached to each other) and performance issues.
+
+```javascript
+this.star = this.game.add.spine(200, 300, 'spineStar', group, false);
+this.star.enableCanvasMesh = true;
 ```
 
 ## Maintenance
