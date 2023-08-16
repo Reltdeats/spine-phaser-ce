@@ -81,10 +81,13 @@ export default class SpineGameObject extends SpineBaseGameObject {
     bounds.y = minY;
     bounds.height = maxY - minY;
 
-    this.width = bounds.width;
-    this.height = bounds.height;
-
     return bounds;
+  }
+
+  /* Rebuilds to replace current spine */
+  replaceSpine(key) {
+    this.key = key;
+    this.__setSpine();
   }
 
   preUpdate() {
