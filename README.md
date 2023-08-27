@@ -23,6 +23,21 @@ import SpinePlugin from '@reltdeats/spine-phaser-ce';
 
 this.game.plugins.add(SpinePlugin);
 ```
+or...
+
+1. Use jsdelivr cdn:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/phaser-ce@2.20.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/@reltdeats/spine-phaser-ce@0.9.4/dist/spine-phaser-ce.min.js"></script>
+
+this.game.plugins.add(SpinePlugin);
+```
+2. Import the plugin:
+
+```javascript
+this.game.plugins.add(SpinePlugin);
+```
 3. Import your assets with the spine loader:
 
 ```javascript
@@ -64,7 +79,7 @@ this.game.load.spine('spineStar', spineStar);
 this.star = this.game.add.spine(200, 300, 'spineStar', group, false);
 ```
 
-## Manipulating the Spine
+## Manipulating the Spine and examples
 All transforms are handled by the Phaser CE system:
 
 ```javascript
@@ -88,6 +103,8 @@ this.game.time.events.loop(8000, () => {
     this.star.animationState.addAnimation(0, 'Out', false);
 });
 ```
+
+For more examples, check out the [example index](http://htmlpreview.github.io/?https://github.com/Reltdeats/spine-phaser-ce/blob/dev/dist/examples/index.html)
 
 ## Debug
 Debug is still in progress and shows little to no information. WIP.

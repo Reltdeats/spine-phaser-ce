@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples index</title>
+    <style>
+        html,
+        body {
+            background-color: rgb(13, 17, 23);
+            color: azure;
+            font-family: monospace;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #D62929;
+            margin-bottom: 0.25rem;
+        }
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+
+        h4 a {
+            color: azure;
+        }
+
+        a {
+            color: aquamarine;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        Examples index
+    </h1>
+    <h4>
+        <a href="https://github.com/Reltdeats/spine-phaser-ce#readme" target="_blank"
+            rel="noopener noreferrer">@reltdeats/spine-phaser-ce</a>
+    </h4>
+
+    <% for (example of examples) { %>
+        <a href="<%= example %>.html">
+            <span>
+                <%= example %>
+            </span> example
+        </a>
+        <% } %>
+
+</body>
+
+</html>

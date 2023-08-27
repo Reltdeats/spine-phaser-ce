@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= example %>
+    </title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/github-dark-dimmed.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser-ce@2.20.0"></script>
+    <script src="../spine-phaser-ce.min.js"></script>
+    <script src="js/<%= script %>"></script>
+    <style>
+        html,
+        body {
+            background-color: rgb(13, 17, 23);
+            color: azure;
+            font-family: monospace;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #D62929;
+            margin-bottom: 0.25rem;
+        }
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+
+        h4 a {
+            color: azure;
+        }
+
+        pre code.hljs {
+            max-width: 80vw;
+            overflow-x: scroll;
+            padding: 1rem 3rem 1rem 3rem;
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        code::-webkit-scrollbar-track,
+        html::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: #16191d;
+        }
+
+        code::-webkit-scrollbar,
+        html::-webkit-scrollbar {
+            width: 12px;
+            background-color: rgb(13, 17, 23);
+        }
+
+        code::-webkit-scrollbar-thumb,
+        html::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #D62929;
+        }
+
+        .return {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 1rem;
+            margin: 1rem;
+            background-color: #D62929;
+            color: azure;
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        <%= example %>
+    </h1>
+    <h4>
+        <a href="https://github.com/Reltdeats/spine-phaser-ce#readme" target="_blank"
+            rel="noopener noreferrer">@reltdeats/spine-phaser-ce</a>
+    </h4>
+
+    <div id="spine-phaser-ce-example"></div>
+
+    <pre>
+        <code class="language-js">
+<%= code %>
+        </code>
+    </pre>
+
+    <a class="return" href="index.html">Return to index</a>
+
+</body>
+
+</html>

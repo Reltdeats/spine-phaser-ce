@@ -9,8 +9,7 @@
   },
   "globals": {
     "Phaser": true,
-    "phasersito": true,
-    "Phasersito": true
+    "SpinePlugin": true
   },
   "rules": {
     "comma-dangle": [

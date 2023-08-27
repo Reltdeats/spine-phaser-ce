@@ -19,12 +19,11 @@ export default class SpineBaseGameObject extends Phaser.PIXI.DisplayObject {
   }
 
   set width(value) {
-    var width = this.getBounds().width;
+    const { width } = this.getBounds();
 
     if (width !== 0) {
       this.scale.x = value / width;
-    }
-    else {
+    } else {
       this.scale.x = 1;
     }
 
@@ -36,18 +35,16 @@ export default class SpineBaseGameObject extends Phaser.PIXI.DisplayObject {
   }
 
   set height(value) {
-    var height = this.getBounds().height;
+    const { height } = this.getBounds();
 
     if (height !== 0) {
       this.scale.y = value / height;
-    }
-    else {
+    } else {
       this.scale.y = 1;
     }
 
     this._height = value;
   }
-
 }
 
 Phaser.Component.Core.install.call(SpineBaseGameObject.prototype, [
