@@ -4,8 +4,8 @@
   "description": "Spine runtimes plugin for Phaser CE.",
   "main": "./src/spinePlugin.js",
   "files": [
-    "dist/*.js",
-    "dist/*.map",
+    "dist/spine-phaser-ce.min.js",
+    "dist/spine-phaser-ce.min.js.map",
     "src/spinePlugin.js",
     "src/spineGameObject.js",
     "src/spineBaseGameObject.js",

@@ -1,5 +1,6 @@
 # spine-phaser-ce
 Spine runtimes plugin for Phaser CE.
+Check out the repository at [github](https://github.com/Reltdeats/spine-phaser-ce)
 
 ## Features
 
@@ -11,7 +12,7 @@ Spine runtimes plugin for Phaser CE.
 
 - Phaser CE 2.20.0 or newer (not tested with older versions).
 - Globally declared Phaser so the plugin can extend it.
-- Some spines to use with the plugin :D.
+- Some spines to use with the plugin.
 
 ## How to use
 
@@ -104,8 +105,14 @@ this.game.time.events.loop(8000, () => {
 });
 ```
 
-For more examples, check out the [example index](http://htmlpreview.github.io/?https://github.com/Reltdeats/spine-phaser-ce/blob/dev/dist/examples/index.html)
+For more examples, check out the [example index](https://reltdeats.github.io/spine-phaser-ce/dist/examples/).
 
+If you are cloning the [github](https://github.com/Reltdeats/spine-phaser-ce) repository, run the following commands to launch the examples in your web browser:
+
+```bash
+npm i
+npm run serve
+```
 ## Debug
 Debug is still in progress and shows little to no information. WIP.
 
