@@ -1,6 +1,6 @@
 {
   "name": "@reltdeats/spine-phaser-ce",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Spine runtimes plugin for Phaser CE.",
   "main": "./src/spinePlugin.js",
   "files": [
