@@ -3,7 +3,7 @@
  * @copyright    2023 Ruben García Vilà.
  * @license      {@link https://github.com/Reltdeats/spine-phaser-ce/blob/master/LICENSE|MIT License}
  */
-import { AnimationState, AnimationStateData } from '@esotericsoftware/spine-core';
+import { AnimationState, AnimationStateData, SkeletonBounds } from '@esotericsoftware/spine-core';
 import SpineBaseGameObject from './spineBaseGameObject';
 import SpineSkeleton from './spineSkeleton';
 import SpineUtils from './spineUtils';
@@ -16,6 +16,7 @@ export default class SpineGameObject extends SpineBaseGameObject {
     this.plugin = plugin;
     this.premultipliedAlpha = premultipliedAlpha;
     this.scaleMode = Phaser.PIXI.scaleModes.LINEAR;
+    this.utils = new SpineUtils();
 
     this.debug = false;
     this.enableCanvasMesh = false;
@@ -33,6 +34,7 @@ export default class SpineGameObject extends SpineBaseGameObject {
     this.skeleton = new SpineSkeleton(this.game, this.plugin, this.key, this).skeleton;
     this.animationStateData = new AnimationStateData(this.skeleton.data);
     this.animationState = new AnimationState(this.animationStateData);
+    this.skeletonBounds = new SkeletonBounds();
     this.spineBounds = SpineUtils.calculateBounds(this);
   }
 
@@ -110,6 +112,70 @@ export default class SpineGameObject extends SpineBaseGameObject {
     this.beforeUpdateWorldTransforms(this);
     this.skeleton.updateWorldTransform();
     this.afterUpdateWorldTransforms(this);
+  }
+
+  destroy() {
+    this.destroyPhase = true;
+    this.renderable = false;
+
+    if (this.events) {
+      this.events.onDestroy$dispatch(this);
+    }
+
+    if (this.parent) {
+      if (this.parent instanceof Phaser.Group) {
+        this.parent.remove(this);
+      } else {
+        this.parent.removeChild(this);
+      }
+    }
+
+    if (this.input) {
+      this.input.destroy();
+    }
+
+    if (this.transformCallback) {
+      this.transformCallback = null;
+      this.transformCallbackContext = null;
+    }
+
+    this.game.tweens.removeFrom(this);
+
+    delete this.skeleton;
+    delete this.animationStateData;
+    delete this.animationState;
+    delete this.skeletonBounds;
+    delete this.spineBounds;
+    delete this.beforeUpdateWorldTransforms;
+    delete this.afterUpdateWorldTransforms;
+    delete this.debug;
+    delete this.enableCanvasMesh;
+    delete this.utils;
+    delete this.scaleMode;
+    delete this.key;
+    delete this.premultipliedAlpha;
+
+    delete this.alive;
+    delete this.exists;
+    delete this.visible;
+    delete this.filters;
+    delete this.mask;
+    delete this.game;
+    delete this.data;
+
+    delete this.hitArea;
+    delete this.parent;
+    delete this.stage;
+    delete this.worldTransform;
+    delete this.filterArea;
+    delete this._bounds;
+    delete this._currentBounds;
+    delete this._mask;
+
+    this._destroyCachedSprite();
+
+    this.destroyPhase = false;
+    this.pendingDestroy = false;
   }
 
   _renderWebGL(renderer) {
