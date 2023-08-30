@@ -5,10 +5,12 @@ function preload() {
 
     game.load.crossOrigin = 'anonymous';
 
+    const baseUrl = 'https://raw.githubusercontent.com/EsotericSoftware/spine-runtimes/4.1/spine-ts/spine-phaser/example/assets/';
+
     const spineBoyConfig = {
-        image: 'https://raw.githubusercontent.com/EsotericSoftware/spine-runtimes/4.1/spine-ts/spine-phaser/example/assets/spineboy-pma.png',
-        atlas: 'https://raw.githubusercontent.com/EsotericSoftware/spine-runtimes/4.1/spine-ts/spine-phaser/example/assets/spineboy-pma.atlas',
-        binary: 'https://raw.githubusercontent.com/EsotericSoftware/spine-runtimes/4.1/spine-ts/spine-phaser/example/assets/spineboy-pro.skel'
+        image: `${baseUrl}spineboy-pma.png`,
+        atlas: `${baseUrl}spineboy-pma.atlas`,
+        binary: `${baseUrl}spineboy-pro.skel`
     };
 
     game.load.spine('spineBoy', spineBoyConfig);
