@@ -3,7 +3,7 @@
  * @copyright    2023 Ruben García Vilà.
  * @license      {@link https://github.com/Reltdeats/spine-phaser-ce/blob/master/LICENSE|MIT License}
  */
-import { AnimationState, AnimationStateData, SkeletonBounds } from '@esotericsoftware/spine-core';
+import { AnimationState, AnimationStateData, SkeletonBounds, Vector2 } from '@esotericsoftware/spine-core';
 import SpineBaseGameObject from './spineBaseGameObject';
 import SpineSkeleton from './spineSkeleton';
 import SpineUtils from './spineUtils';
@@ -35,7 +35,9 @@ export default class SpineGameObject extends SpineBaseGameObject {
     this.animationStateData = new AnimationStateData(this.skeleton.data);
     this.animationState = new AnimationState(this.animationStateData);
     this.skeletonBounds = new SkeletonBounds();
-    this.spineBounds = SpineUtils.calculateBounds(this);
+    this.boundsOffset = new Vector2();
+    this.boundsSize = new Vector2();
+    this.boundsTemp = new Array(2);
   }
 
   _checkSpine() {
@@ -50,12 +52,23 @@ export default class SpineGameObject extends SpineBaseGameObject {
 
   getBounds() {
     const bounds = this._bounds;
+    const { data } = this.skeleton;
 
-    const w0 = this.spineBounds.x;
-    const w1 = this.spineBounds.width + w0;
+    if (!data.x) {
+      this.skeleton.getBounds(this.boundsOffset, this.boundsSize, this.boundsTemp);
+      if (this.boundsSize.x !== Number.NEGATIVE_INFINITY) {
+        data.x = this.boundsOffset.x;
+        data.width = this.boundsSize.x;
+        data.y = -this.boundsOffset.y;
+        data.height = -this.boundsSize.y;
+      }
+    }
 
-    const h0 = this.spineBounds.y;
-    const h1 = this.spineBounds.height + h0;
+    const w0 = data.x;
+    const w1 = data.width + w0;
+
+    const h0 = -data.y;
+    const h1 = -data.height + h0;
 
     const { a, b, c, d, tx, ty } = this.worldTransform;
 
@@ -146,6 +159,9 @@ export default class SpineGameObject extends SpineBaseGameObject {
     delete this.animationState;
     delete this.skeletonBounds;
     delete this.spineBounds;
+    delete this.boundsOffset;
+    delete this.boundsSize;
+    delete this.boundsTemp;
     delete this.beforeUpdateWorldTransforms;
     delete this.afterUpdateWorldTransforms;
     delete this.debug;
@@ -277,6 +293,6 @@ export default class SpineGameObject extends SpineBaseGameObject {
   }
 
   _debug() {
-    this.game.debug.spriteBounds(this);
+    this.game.debug.spriteBounds(this, 'rgba(0,0, 255, 0.5)');
   }
 }

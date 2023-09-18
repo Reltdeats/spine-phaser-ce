@@ -159,6 +159,14 @@ module.exports = (env) => {
               plugins: ['@babel/plugin-transform-runtime']
             }
           }
+        },
+        // Special loader logic for spine files
+        {
+          test: /examples\/*.(spine|spines).*\.(json|atlas|txt|png)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: '[path][name][ext]'
+          }
         }
       ]
     },
