@@ -10,11 +10,13 @@ const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const pkginfo = require('./package.json');
 
+const copyVersion = parseInt(pkginfo.version.match(/([^.]*)$/)[0], 10) + 1;
+
 const copy = `
 /**
  * Copyright for the Phaser CE Spine Plugin software and its source files:
  * @author       Ruben García Vilà
- * @version      ${pkginfo.version}
+ * @version      ${pkginfo.version.replace(/([^.]*)$/, copyVersion)}
  * @copyright    2023 Ruben García Vilà.
  * @license      {@link https://github.com/Reltdeats/spine-phaser-ce/blob/master/LICENSE|MIT License}
  *

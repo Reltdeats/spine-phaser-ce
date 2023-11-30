@@ -30,7 +30,7 @@ or...
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/phaser-ce@2.20.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/@reltdeats/spine-phaser-ce@0.9.6/dist/spine-phaser-ce.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@reltdeats/spine-phaser-ce@0.9.7/dist/spine-phaser-ce.min.js"></script>
 
 this.game.plugins.add(SpinePlugin);
 ```
